@@ -9,3 +9,10 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
 ## Your Explanation Here
+
+- Firstly old code checks  if event exist then assign partitionKey to candidate else generate hash. 
+so I improved it by using ternary operator and also create generateHash and getCandidateFromPartitionKeyOfEvent functions to 
+make it seprate and easy to undersatnd logic.
+- Second old block of code check if candidate exist and not a string then stringify it otherwise  assign default value.Fot that I assign initially default value to candidate and candidate key value will be object or any other value only in case if it is passed 
+in event paramater that is why I moved that part to getCandidateFromPartitionKeyOfEvent function
+- sha3-512 hash length is 12.In getCandidateFromPartitionKeyOfEvent function if candidate's length is greater than 256 then generate hash otherwise return candidate.

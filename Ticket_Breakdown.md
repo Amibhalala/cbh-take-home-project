@@ -16,3 +16,11 @@ Based on the information given, break this ticket down into 2-5 individual ticke
 You will be graded on the level of detail in each ticket, the clarity of the execution plan within and between tickets, and the intelligibility of your language. You don't need to be a native English speaker, but please proof-read your work.
 
 ## Your Breakdown Here
+- For custom id we need to add custom id column in agent table or we can create map table refrence to internal id of agent table with custom id
+- With map table :getShiftsByFacility function gives details with internal agent id so we can get custom id from map table by internal agent id and then pass details to generateReport function
+- Without map table: getShiftsByFacility gives details by custom agent id so we can simply pass this data to generateReport function
+
+-Map table approach is non breaking approach in which we just update the code and dont modify actual id in Facilities table because we just created new map table and get data from it by making query calls in code.
+- Without map table approach may take some time and could be breaking. so for that we have to take db backup and carefully check update query before changing actual DB data
+
+Time/Effort Estimates: for each task is 1 day
